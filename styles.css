@@ -1,0 +1,389 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root { 
+    --navbar-height: 60px;
+}
+
+
+html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+.fondo {
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    width: 100%;
+    height: calc(100% - var(--navbar-height));
+    background-image: url('src/vampire_count.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: #000000;
+    z-index: 10;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 60px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #e50914;
+}
+
+.titulo-container {
+    position: relative;
+    z-index: 1;
+    min-height: calc(100vh - var(--navbar-height));
+    padding-top: calc(var(--navbar-height) - 150px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.titulo {
+    width: min(450px, 70%);
+    height: auto;
+    display: block;
+}
+
+.contador {
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.frame {
+    position: relative;
+    width: 150px;
+    aspect-ratio: 1094 / 1002;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.frame-contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.numero {
+    font-size: 40px;
+    color: #e50914;
+    line-height: 1;
+}
+
+.etiqueta {
+    margin-top: 20px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.subtitulo {
+    margin-top: 4px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+    letter-spacing: 4px;
+    text-align: center;
+    background: linear-gradient(180deg, #ffffff 0%, #c9c9c9 45%, #8a8a8a 55%, #e8e8e8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn-itinerario {
+    display: inline-block;
+    margin-top: 32px;
+    padding: 12px 32px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #e50914;
+    border-radius: 4px;
+    color: #ffffff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-itinerario:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 12px 2px rgba(229, 9, 20, 0.7);
+}
+
+.itinerario-container {
+    position: relative;
+    z-index: 1;
+    min-height: calc(100vh - var(--navbar-height));
+    padding: calc(var(--navbar-height) - 100px) 20px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.itinerario-titulo {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #e50914;
+    font-size: 32px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 40px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.linea-tiempo {
+    position: relative;
+    width: min(600px, 90%);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-left: 28px;
+    margin-bottom: 80px;
+}
+
+.linea-tiempo::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 5px;
+    width: 2px;
+    background: linear-gradient(180deg, #e50914 0%, rgba(229, 9, 20, 0.15) 100%);
+}
+
+.evento {
+    position: relative;
+    background: rgba(20, 20, 20, 0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(229, 9, 20, 0.35);
+    border-radius: 10px;
+    padding: 18px 22px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.evento:hover {
+    transform: translateX(6px);
+    box-shadow: 0 4px 20px rgba(229, 9, 20, 0.35);
+    border-color: #e50914;
+}
+
+.punto {
+    position: absolute;
+    top: 22px;
+    left: -28px;
+    width: 12px;
+    height: 12px;
+    background-color: #e50914;
+    border-radius: 50%;
+    box-shadow: 0 0 8px 2px rgba(229, 9, 20, 0.7);
+}
+
+.hora {
+    display: block;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #e50914;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.descripcion {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.wiki-container {
+    position: relative;
+    z-index: 1;
+    min-height: calc(100vh - var(--navbar-height));
+    padding: calc(var(--navbar-height) - 100px) 20px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wiki-titulo {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #e50914;
+    font-size: 32px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 8px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.wiki-intro {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #ffffff;
+    font-size: 15px;
+    text-align: center;
+    max-width: 500px;
+    margin-top: 12px;
+    margin-bottom: 40px;
+    opacity: 0.85;
+}
+
+.wiki-grid {
+    width: min(900px, 95%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+
+.wiki-card {
+    flex: 1 1 220px;
+    max-width: 260px;
+    background: rgba(20, 20, 20, 0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(229, 9, 20, 0.35);
+    border-radius: 10px;
+    padding: 28px 22px;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.wiki-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 4px 20px rgba(229, 9, 20, 0.35);
+    border-color: #e50914;
+}
+
+.wiki-card h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #e50914;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.wiki-card p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.85;
+}
+
+.wiki-articulo {
+    position: relative;
+    z-index: 1;
+    min-height: calc(100vh - var(--navbar-height));
+    padding: calc(var(--navbar-height) + 30px) 20px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wiki-volver {
+    align-self: flex-start;
+    margin-left: max(5%, calc(50% - 300px));
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #e50914;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    margin-bottom: 24px;
+    transition: opacity 0.3s ease;
+}
+
+.wiki-volver:hover {
+    opacity: 0.7;
+}
+
+.wiki-articulo-titulo {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #e50914;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 32px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.wiki-contenido {
+    width: min(600px, 90%);
+    background: rgba(20, 20, 20, 0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(229, 9, 20, 0.35);
+    border-radius: 10px;
+    padding: 28px 30px;
+}
+
+.wiki-contenido h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #e50914;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.wiki-contenido h2:first-child {
+    margin-top: 0;
+}
+
+.wiki-contenido p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
