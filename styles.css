@@ -41,6 +41,15 @@ html::-webkit-scrollbar {
     z-index: 10;
 }
 
+.navbar-logo {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: calc(var(--navbar-height) - 20px);
+    width: auto;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -66,7 +75,7 @@ html::-webkit-scrollbar {
     position: relative;
     z-index: 1;
     min-height: calc(100vh - var(--navbar-height));
-    padding-top: calc(var(--navbar-height) - 150px);
+    padding-top: calc(var(--navbar-height) + 20px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,7 +168,7 @@ html::-webkit-scrollbar {
     position: relative;
     z-index: 1;
     min-height: calc(100vh - var(--navbar-height));
-    padding: calc(var(--navbar-height) - 100px) 20px 100px;
+    padding: calc(var(--navbar-height) + 20px) 20px 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -247,7 +256,7 @@ html::-webkit-scrollbar {
     position: relative;
     z-index: 1;
     min-height: calc(100vh - var(--navbar-height));
-    padding: calc(var(--navbar-height) - 100px) 20px 100px;
+    padding: calc(var(--navbar-height) + 20px) 20px 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -386,4 +395,29 @@ html::-webkit-scrollbar {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 16px;
+}
+
+.footer {
+    position: relative;
+    z-index: 1;
+    background-color: #000000;
+    border-top: 1px solid rgba(0, 0, 0, 0);
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-copyright {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #ffffff;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+    margin-bottom: 6px;
+}
+
+.footer-mensaje {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #e50914;
+    font-size: 13px;
+    letter-spacing: 0.5px;
 }
